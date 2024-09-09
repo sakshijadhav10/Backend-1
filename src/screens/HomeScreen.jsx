@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "../slices/userSlice";
 import { useParams } from "react-router-dom";
 import Paginate from "../components/Paginate";
-import BannerSlider from "../jsx/Bannerslider";
+// import BannerSlider from "../jsx/Bannerslider";
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
@@ -50,9 +50,7 @@ export default function HomeScreen() {
         toast.error(error)
       ) : (
         <>
-          <div className="w-full">
-            <BannerSlider />
-          </div>
+          <div className="w-full">{/* <BannerSlider /> */}</div>
           <div className="w-full px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {data?.products?.map((product, i) => (
