@@ -9,7 +9,8 @@ export default defineConfig({
     proxy:{
       '/api':"https://backend-1-g41s.onrender.com",
       '/upload':"https://backend-1-g41s.onrender.com"
-    }
+    },
+    
   
   },
   
