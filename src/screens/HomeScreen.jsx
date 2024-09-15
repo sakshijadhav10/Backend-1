@@ -1,19 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Product from "../components/Product";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../slices/userSlice";
 import { useParams } from "react-router-dom";
 import Paginate from "../components/Paginate";
-// import BannerSlider from "../jsx/Bannerslider";
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
-
   const getUser = async () => {
     try {
       const res = await axios.get(`${BACKEND_URL}/auth/login/success`, {
@@ -50,20 +49,21 @@ export default function HomeScreen() {
         toast.error(error)
       ) : (
         <>
-          <div className="w-full">{/* <BannerSlider /> */}</div>
-          <div className="w-full px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {data?.products?.map((product, i) => (
-                <Product key={i} product={product} />
-              ))}
-            </div>
-            <div className="flex justify-center mt-12">
-              <Paginate
-                pages={data.pages}
-                page={data.pageNumber}
-                keyword={keyword ? keyword : ""}
-              />
-            </div>
+          {/* <React.Fragment>
+            <BannerScreen />
+          </React.Fragment> */}
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {data?.products?.map((product, i) => (
+              <Product key={i} product={product} />
+            ))}
+          </div>
+          <div className="flex justify-center mt-12">
+            <Paginate
+              pages={data.pages}
+              page={data.pageNumber}
+              keyword={keyword ? keyword : ""}
+            />
           </div>
         </>
       )}

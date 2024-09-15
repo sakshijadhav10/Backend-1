@@ -9,7 +9,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       
-      '/api': "https://backend-1-g41s.onrender.com",
-      '/upload': "https://backend-1-g41s.onrender.com"
+      "/api": "https://ecommerce-8-lcx4.onrender.com",
+      "/upload": "https://ecommerce-8-lcx4.onrender.com"
     },
   },})
